@@ -10,13 +10,12 @@ import {
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+import { Card } from '../components/Card.component';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView
-        style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
           <Image
@@ -26,6 +25,28 @@ export default function HomeScreen() {
                 : require('../assets/images/insta.png')
             }
             style={styles.welcomeImage}
+          />
+        </View>
+        <View style={{flex: 5}}>
+        <Card 
+          heading={{title: '01_wake_up_my_pilot', subtitle: 'hearts+minds'}} 
+          imageSrc={require('../assets/images/group.jpg')} 
+          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          />
+        <Card 
+          heading={{title: '02_if_god_is_what_u_want', subtitle: 'hearts+minds'}} 
+          imageSrc={require('../assets/images/thumb.jpg')} 
+          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          />
+        <Card 
+          heading={{title: '03_im_so_sorry', subtitle: 'hearts+minds'}} 
+          imageSrc={require('../assets/images/henny.jpg')} 
+          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          />
+        <Card 
+          heading={{title: '04_AI', subtitle: 'hearts+minds'}} 
+          imageSrc={require('../assets/images/blackflowers.png')} 
+          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
           />
         </View>
       </ScrollView>
@@ -74,7 +95,6 @@ function handleHelpPress() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
   },
   developmentModeText: {
@@ -86,18 +106,17 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
+    display: 'flex',
+    flexDirection: 'column'
   },
   welcomeContainer: {
     alignItems: 'center',
     marginTop: 10,
-    marginBottom: 20,
+    // marginBottom: 20,
   },
   welcomeImage: {
-    width: 200,
-    height: 160,
+    height: 125,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
   },
   getStartedContainer: {
     alignItems: 'center',
