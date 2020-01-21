@@ -20,4 +20,12 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  headingText: {
+    fontFamily: 'Courier',
+    textAlign: 'center',
+    alignSelf: 'center',
+    fontSize: 36,
+    fontWeight: "900",
+    flex: 10,
+  }
 });

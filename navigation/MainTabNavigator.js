@@ -8,7 +8,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import NewsScreen from '../screens/NewsScreen';
 import ArtScreen from '../screens/ArtScreen';
-import ShowsScreen from '../screens/ShowsScreen';
+import BioScreen from '../screens/BioScreen';
 import ChatScreen from '../screens/ChatScreen';
 import IceCreamScreen from '../screens/IceCreamScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -18,14 +18,14 @@ const config = Platform.select({
   default: {},
 });
 
-const ShowsStack = createStackNavigator(
+const BioStack = createStackNavigator(
   {
-    Shows: ShowsScreen,
+    Bio: BioScreen,
   },
   config
 );
 
-ShowsStack.navigationOptions = {
+BioStack.navigationOptions = {
   // tabBarLabel: '',
   tabBarOptions: {
     showLabel: false
@@ -35,7 +35,7 @@ ShowsStack.navigationOptions = {
     ),
 };
 
-ShowsStack.path = '';
+BioStack.path = '';
 
 const ArtStack = createStackNavigator(
   {
@@ -49,7 +49,7 @@ ArtStack.navigationOptions = {
     showLabel: false
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'ios-color-palette' : 'ios-color-palette'}`: 'ios-color-palette'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'md-musical-notes' : 'md-musical-notes'}`: 'md-musical-notes'} />
   ),
 };
 
@@ -105,7 +105,7 @@ ChatStack.navigationOptions = {
     showLabel: false
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'md-ice-cream' : 'md-ice-cream'}`: 'md-ice-cream'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'md-heart' : 'md-heart'}`: 'md-heart'} />
   ),
 };
 
@@ -133,11 +133,11 @@ ChatStack.path = '';
 const tabNavigator = createAppContainer(
   createBottomTabNavigator(
     {
-      Shows: ShowsStack,
+      Bio: BioStack,
       Treats: IceCreamStack,
+      News: NewsStack,
       Art: ArtStack,
       Social: ChatStack,
-      News: NewsStack,
     },
     {
       initialRouteName: "News",

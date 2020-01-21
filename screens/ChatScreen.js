@@ -32,17 +32,11 @@ ChatScreen.navigationOptions = {
     
 export default function ChatScreen() {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 1, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 3, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 2, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 8, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 1, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 1, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 1, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 1, margin: '5%', resizeMode: 'cover' }}/>
-      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 1, margin: '5%', resizeMode: 'cover' }}/>
-    </ScrollView>
+      {/* <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 3, margin: '5%', resizeMode: 'cover' }}/>
+      <Image source={require('../assets/images/nycity.jpg')} style={{ width: '90%', flex: 2, margin: '5%', resizeMode: 'cover' }}/> */}
+    </View>
   );
 }
 

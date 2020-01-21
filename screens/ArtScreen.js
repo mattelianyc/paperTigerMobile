@@ -20,12 +20,16 @@ ArtScreen.navigationOptions = {
   },
   headerTitle: () => {
     return (
-      <Ionicons
-        name={'md-musical-notes'}
-        size={56}
-        style={{ padding: 5 }}
-        color={'black'}
-      />
+      <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.headingText}>paper</Text>
+          <Ionicons
+            name={'md-musical-notes'}
+            size={56}
+            style={{ padding: 5, flex: 3, textAlign: 'center'}}
+            color={'black'}
+          />
+        <Text style={styles.headingText}>tiger</Text>
+      </View>
     )
   },  
 };
@@ -74,47 +78,21 @@ export default function ArtScreen() {
         </View>
       </ScrollView>
     </View>
-  );
+  )
 }
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
+  },
+  headingText: {
+    fontFamily: 'Courier',
+    textAlign: 'center',
+    alignSelf: 'center',
+    fontSize: 36,
+    fontWeight: "900",
+    flex: 10,
   },
   developmentModeText: {
     marginBottom: 20,
