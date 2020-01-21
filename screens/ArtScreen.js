@@ -11,17 +11,31 @@ import {
 } from 'react-native';
 
 import { Card } from '../components/Card.component';
+import { Ionicons } from '@expo/vector-icons';
 
-HomeScreen.navigationOptions = {
-  header: null,
+ArtScreen.navigationOptions = {
+  headerStyle: { 
+    height: 75,
+    borderBottomWidth: 0  
+  },
+  headerTitle: () => {
+    return (
+      <Ionicons
+        name={'md-musical-notes'}
+        size={56}
+        style={{ padding: 5 }}
+        color={'black'}
+      />
+    )
+  },  
 };
 
-export default function HomeScreen() {
+export default function ArtScreen() {
   return (
-    // <View style={styles.container}>
+    <View style={styles.container}>
       <ScrollView
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
+        {/* <View style={styles.welcomeContainer}>
           <Image
             source={
               __DEV__
@@ -30,31 +44,36 @@ export default function HomeScreen() {
             }
             style={styles.welcomeImage}
           />
-        </View>
+        </View> */}
         <View style={{flex: 5}}>
         <Card 
           heading={{title: '01_wake_up_my_pilot', subtitle: 'hearts+minds'}} 
           imageSrc={require('../assets/images/group.jpg')} 
-          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          description={'We include SpaceMono because we use it in ArtScreen.js. Feel free toremove this if you are not using it in your app'}
           />
         <Card 
           heading={{title: '02_if_god_is_what_u_want', subtitle: 'hearts+minds'}} 
-          imageSrc={require('../assets/images/thumb.jpg')} 
-          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          imageSrc={require('../assets/images/flowerz.jpg')} 
+          description={'We include SpaceMono because we use it in ArtScreen.js. Feel free toremove this if you are not using it in your app'}
           />
         <Card 
           heading={{title: '03_im_so_sorry', subtitle: 'hearts+minds'}} 
           imageSrc={require('../assets/images/henny.jpg')} 
-          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          description={'We include SpaceMono because we use it in ArtScreen.js. Feel free toremove this if you are not using it in your app'}
           />
         <Card 
           heading={{title: '04_AI', subtitle: 'hearts+minds'}} 
           imageSrc={require('../assets/images/blackflowers.png')} 
-          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+          description={'We include SpaceMono because we use it in ArtScreen.js. Feel free toremove this if you are not using it in your app'}
           />
+        <Card 
+          heading={{title: '05_C.H.A.M.P.I.O.N.', subtitle: 'hearts+minds'}} 
+          imageSrc={require('../assets/images/thumb.jpg')} 
+          description={'We include SpaceMono because we use it in HomeScreen.js. Feel free toremove this if you are not using it in your app'}
+            />
         </View>
       </ScrollView>
-    // </View>
+    </View>
   );
 }
 
@@ -117,65 +136,5 @@ const styles = StyleSheet.create({
   welcomeImage: {
     height: 125,
     resizeMode: 'contain',
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
 });

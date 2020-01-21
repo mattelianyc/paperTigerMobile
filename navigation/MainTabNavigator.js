@@ -1,11 +1,16 @@
 import React from 'react';
 import { Platform } from 'react-native';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-// import LinksScreen from '../screens/LinksScreen';
+import NewsScreen from '../screens/NewsScreen';
+import ArtScreen from '../screens/ArtScreen';
+import ShowsScreen from '../screens/ShowsScreen';
+import ChatScreen from '../screens/ChatScreen';
+import IceCreamScreen from '../screens/IceCreamScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
@@ -13,66 +18,141 @@ const config = Platform.select({
   default: {},
 });
 
-const HomeStack = createStackNavigator(
+const ShowsStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Shows: ShowsScreen,
   },
   config
 );
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+ShowsStack.navigationOptions = {
+  // tabBarLabel: '',
+  tabBarOptions: {
+    showLabel: false
+  },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'md-paw' : 'md-paw'}`: 'md-paw'} />
+    ),
+};
+
+ShowsStack.path = '';
+
+const ArtStack = createStackNavigator(
+  {
+    Art: ArtScreen,
+  },
+  config
+);
+
+ArtStack.navigationOptions = {
+  tabBarOptions: {
+    showLabel: false
+  },
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'ios-color-palette' : 'ios-color-palette'}`: 'ios-color-palette'} />
   ),
 };
 
-HomeStack.path = '';
+ArtStack.path = '';
 
-// const LinksStack = createStackNavigator(
+const NewsStack = createStackNavigator(
+  {
+    News: NewsScreen,
+  },
+  config
+);
+
+NewsStack.navigationOptions = {
+  tabBarOptions: {
+    showLabel: false
+  },
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'md-pulse' : 'md-pulse'}`: 'md-pulse'} />
+  ),
+};
+
+NewsStack.path = '';
+
+const IceCreamStack = createStackNavigator(
+  {
+    IceCream: IceCreamScreen,
+  },
+  config
+);
+
+IceCreamStack.navigationOptions = {
+  // tabBarLabel: '',
+  tabBarOptions: {
+    showLabel: false
+  },
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'ios-ice-cream' : 'ios-ice-cream'}`: 'ios-ice-cream'} />
+    ),
+};
+
+IceCreamStack.path = '';
+
+const ChatStack = createStackNavigator(
+  {
+    Chat: ChatScreen,
+  },
+  config
+);
+
+ChatStack.navigationOptions = {
+  // tabBarLabel: '',
+  tabBarOptions: {
+    showLabel: false
+  },
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `${focused ? 'md-ice-cream' : 'md-ice-cream'}`: 'md-ice-cream'} />
+  ),
+};
+
+ChatStack.path = '';
+
+// const SettingsStack = createStackNavigator(
 //   {
-//     Links: LinksScreen,
+//     Settings: SettingsScreen,
 //   },
 //   config
 // );
 
-// LinksStack.navigationOptions = {
-//   tabBarLabel: 'Links',
+// SettingsStack.navigationOptions = {
+//   // tabBarLabel: '',
+//   tabBarOptions: {
+//     showLabel: false
+//   },
 //   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-help-buoy' : 'md-help-buoy'} />
 //   ),
 // };
 
-// LinksStack.path = '';
+// SettingsStack.path = '';
 
-const SettingsStack = createStackNavigator(
-  {
-    Settings: SettingsScreen,
-  },
-  config
-);
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-  ),
-};
-
-SettingsStack.path = '';
-
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  // LinksStack,
-  SettingsStack,
-});
+const tabNavigator = createAppContainer(
+  createBottomTabNavigator(
+    {
+      Shows: ShowsStack,
+      Treats: IceCreamStack,
+      Art: ArtStack,
+      Social: ChatStack,
+      News: NewsStack,
+    },
+    {
+      initialRouteName: "News",
+      tabBarOptions: {
+        activeTintColor: '#e91e63',
+        labelStyle: {
+          fontSize: 12,
+        },
+        style: {
+          borderColor: 'transparent'  
+        },
+      }
+    }
+  )
+) 
 
 tabNavigator.path = '';
 
